@@ -1,0 +1,52 @@
+digraph tooltrace {
+  rankdir=TB; newrank=true; fontname="Helvetica";
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
+  label="F1: Using $WORKSPACE_DIR/midterm_data/devices.csv, $WORKSPACE_DIR/midterm_data/auth_events.csv, and $WORKSPACE_DIR/midterm_…\nAnswer: Based on the data provided in `$WORKSPACE_DIR/midterm_data/`: - **Device ID:** `D-101` - **Owner:** **Elena Ortiz** - **Rule R-1 Evaluation…"; labelloc=t;
+  "call_766761" [label="C1: exec\ncall_766761\nInspect midterm data files\nerror (invalid_input)", fillcolor="#FBE6E6", color="#C43B3B"];
+  "call_1224218" [label="C2: exec\ncall_1224218\nRead midterm data files using read tool\nerror (internal_error)", fillcolor="#FBE6E6", color="#C43B3B"];
+  "tool_call:call_1224218:read:1" [label="C3: read\ntool_call:call_1224218:read:1\nalert_rule.txt\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_1224218:read:2" [label="C4: read\ntool_call:call_1224218:read:2\ndevices.csv\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_1224218:read:3" [label="C5: read\ntool_call:call_1224218:read:3\nauth_events.csv\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "call_972380" [label="C6: exec\ncall_972380\nRead midterm data files with limit\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_972380:read:1" [label="C7: read\ntool_call:call_972380:read:1\nalert_rule.txt  (call #2 on this file)\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_972380:read:2" [label="C8: read\ntool_call:call_972380:read:2\ndevices.csv  (call #2 on this file)\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_972380:read:3" [label="C9: read\ntool_call:call_972380:read:3\nauth_events.csv  (call #2 on this file)\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "call_1138511" [label="C10: exec\ncall_1138511\nRead midterm data files with await\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_1138511:read:1" [label="C11: read\ntool_call:call_1138511:read:1\nalert_rule.txt  (call #3 on this file)\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_1138511:read:2" [label="C12: read\ntool_call:call_1138511:read:2\ndevices.csv  (call #3 on this file)\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_1138511:read:3" [label="C13: read\ntool_call:call_1138511:read:3\nauth_events.csv  (call #3 on this file)\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "call_783962" [label="C14: exec\ncall_783962\nRead full auth_events.csv\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_783962:read:1" [label="C15: read\ntool_call:call_783962:read:1\nauth_events.csv  (call #4 on this file)\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "call_1186635" [label="C16: exec\ncall_1186635\nEvaluate rule R-1 programmatically\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_1186635:read:1" [label="C17: read\ntool_call:call_1186635:read:1\ndevices.csv  (call #4 on this file)\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_1186635:read:2" [label="C18: read\ntool_call:call_1186635:read:2\nauth_events.csv  (call #5 on this file)\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  { rank=same; "call_1224218" "tool_call:call_1224218:read:1" "tool_call:call_1224218:read:2" "tool_call:call_1224218:read:3" }
+  { rank=same; "call_972380" "tool_call:call_972380:read:1" "tool_call:call_972380:read:2" "tool_call:call_972380:read:3" }
+  { rank=same; "call_1138511" "tool_call:call_1138511:read:1" "tool_call:call_1138511:read:2" "tool_call:call_1138511:read:3" }
+  { rank=same; "call_783962" "tool_call:call_783962:read:1" }
+  { rank=same; "call_1186635" "tool_call:call_1186635:read:1" "tool_call:call_1186635:read:2" }
+  "call_766761" -> "call_1224218" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_1224218" -> "call_972380" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_972380" -> "call_1138511" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_1138511" -> "call_783962" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_783962" -> "call_1186635" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "tool_call:call_1224218:read:1" -> "tool_call:call_1224218:read:2" [label="overlaps", color="#1C2A44", style=dotted, fontsize=9];
+  "tool_call:call_1224218:read:2" -> "tool_call:call_1224218:read:3" [label="overlaps", color="#1C2A44", style=dotted, fontsize=9];
+  "call_1224218" -> "tool_call:call_1224218:read:1" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_1224218" -> "tool_call:call_1224218:read:2" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_1224218" -> "tool_call:call_1224218:read:3" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "tool_call:call_972380:read:1" -> "tool_call:call_972380:read:2" [label="overlaps", color="#1C2A44", style=dotted, fontsize=9];
+  "tool_call:call_972380:read:2" -> "tool_call:call_972380:read:3" [label="overlaps", color="#1C2A44", style=dotted, fontsize=9];
+  "call_972380" -> "tool_call:call_972380:read:1" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_972380" -> "tool_call:call_972380:read:2" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_972380" -> "tool_call:call_972380:read:3" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "tool_call:call_1138511:read:1" -> "tool_call:call_1138511:read:2" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "tool_call:call_1138511:read:2" -> "tool_call:call_1138511:read:3" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_1138511" -> "tool_call:call_1138511:read:1" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_1138511" -> "tool_call:call_1138511:read:2" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_1138511" -> "tool_call:call_1138511:read:3" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_783962" -> "tool_call:call_783962:read:1" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "tool_call:call_1186635:read:1" -> "tool_call:call_1186635:read:2" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_1186635" -> "tool_call:call_1186635:read:1" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_1186635" -> "tool_call:call_1186635:read:2" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+}

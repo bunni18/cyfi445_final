@@ -1,0 +1,16 @@
+digraph tooltrace {
+  rankdir=TB; newrank=true; fontname="Helvetica";
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
+  label="M1: Using $WORKSPACE_DIR/midterm_data/devices.csv, who owns device D-101? Cite the device ID you used.\nAnswer: Device D-101 is owned by Elena Ortiz."; labelloc=t;
+  "call_1161847" [label="C1: exec\ncall_1161847\nRead devices.csv\nerror (invalid_input)", fillcolor="#FBE6E6", color="#C43B3B"];
+  "call_1227404" [label="C2: read\ncall_1227404\ndevices.csv\nblocked (Tool read not found)", fillcolor="#FFF2D9", color="#A86A0B"];
+  "call_1152410" [label="C3: exec\ncall_1152410\nSearch catalog for read tool\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "call_1183670" [label="C4: exec\ncall_1183670\nRead devices.csv using read tool\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_1183670:read:1" [label="C5: read\ntool_call:call_1183670:read:1\ndevices.csv  (call #2 on this file)\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  { rank=same; "call_1183670" "tool_call:call_1183670:read:1" }
+  "call_1161847" -> "call_1227404" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_1227404" -> "call_1152410" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_1152410" -> "call_1183670" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_1183670" -> "tool_call:call_1183670:read:1" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_1227404" -> "tool_call:call_1183670:read:1" [label="retry", color="#B04A9A", style=solid, fontsize=9];
+}

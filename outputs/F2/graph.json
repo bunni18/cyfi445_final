@@ -1,0 +1,187 @@
+{
+  "schema": "tracegraph/2",
+  "run": "F2",
+  "trace_boundary": "one exported OpenClaw session containing exactly one user prompt",
+  "session": {
+    "session_id": "2dba315f-d5be-468b-a23a-1358215da953",
+    "session_key": "agent:frankie:tui-94b7e1b6-d088-494c-8b91-765be43205d0",
+    "run_ids": [
+      "8e224e62-c61f-4d26-975d-f47f32485248"
+    ],
+    "provider": "google",
+    "model": "gemini-3.5-flash-lite"
+  },
+  "question": "Try to read $WORKSPACE_DIR/midterm_data/missing_events.csv and report whether the file exists. Do not create it.",
+  "answer": "The file `$WORKSPACE_DIR/midterm_data/missing_events.csv` does not exist.",
+  "edge_semantics": {
+    "next": "Next observed call. Among calls with the same parent (or among top-level calls), the target's tool.call is the next one in event order AND it started after the source returned. Order only; it does not claim the source caused the target.",
+    "overlaps": "Started while the source was still running (target's tool.call comes before the source's tool.result). Start order is shown, but the calls ran concurrently, so no completion order is claimed.",
+    "parent": "Parent/child. The target was issued from inside the source (OpenClaw code mode). Established by the child call ID 'tool_call:<parent>:<tool>:<n>'.",
+    "retry": "Retry. The target calls the same tool on the same file as the source, the source ended in error or blocked, and the target is the next call on that tool and file. Only drawn for calls whose arguments name a file (exec code is masked, so exec calls never get retry edges)."
+  },
+  "nodes": [
+    {
+      "id": "call_510042",
+      "tool": "exec",
+      "parent": null,
+      "label": "Check if missing_events.csv exists",
+      "target": null,
+      "call_seq": 10,
+      "call_ts": "2026-11-01T18:18:37.793Z",
+      "result_seq": 14,
+      "result_ts": "2026-11-01T18:18:37.834Z",
+      "status": "error",
+      "detail": "internal_error",
+      "evidence": [
+        "events.jsonl line 10 (seq 10, runtime tool.call)",
+        "events.jsonl line 14 (seq 14, runtime tool.result)"
+      ],
+      "order": 1,
+      "run": "F2",
+      "session_key": "agent:frankie:tui-94b7e1b6-d088-494c-8b91-765be43205d0",
+      "repeat": null
+    },
+    {
+      "id": "tool_call:call_510042:read:1",
+      "tool": "read",
+      "parent": "call_510042",
+      "label": "$WORKSPACE_DIR/midterm_data/missing_events.csv",
+      "target": "$WORKSPACE_DIR/midterm_data/missing_events.csv",
+      "call_seq": 11,
+      "call_ts": "2026-11-01T18:18:37.811Z",
+      "result_seq": 12,
+      "result_ts": "2026-11-01T18:18:37.816Z",
+      "status": "error",
+      "detail": "message redacted",
+      "evidence": [
+        "events.jsonl line 11 (seq 11, runtime tool.call)",
+        "events.jsonl line 12 (seq 12, runtime tool.result)"
+      ],
+      "order": 2,
+      "run": "F2",
+      "session_key": "agent:frankie:tui-94b7e1b6-d088-494c-8b91-765be43205d0",
+      "repeat": 1
+    },
+    {
+      "id": "call_1278436",
+      "tool": "exec",
+      "parent": null,
+      "label": "Check if missing_events.csv exists with boolean optional",
+      "target": null,
+      "call_seq": 19,
+      "call_ts": "2026-11-01T18:18:38.999Z",
+      "result_seq": 23,
+      "result_ts": "2026-11-01T18:18:39.178Z",
+      "status": "error",
+      "detail": "internal_error",
+      "evidence": [
+        "events.jsonl line 19 (seq 19, runtime tool.call)",
+        "events.jsonl line 23 (seq 23, runtime tool.result)"
+      ],
+      "order": 3,
+      "run": "F2",
+      "session_key": "agent:frankie:tui-94b7e1b6-d088-494c-8b91-765be43205d0",
+      "repeat": null
+    },
+    {
+      "id": "tool_call:call_1278436:read:1",
+      "tool": "read",
+      "parent": "call_1278436",
+      "label": "$WORKSPACE_DIR/midterm_data/missing_events.csv",
+      "target": "$WORKSPACE_DIR/midterm_data/missing_events.csv",
+      "call_seq": 20,
+      "call_ts": "2026-11-01T18:18:39.151Z",
+      "result_seq": 21,
+      "result_ts": "2026-11-01T18:18:39.154Z",
+      "status": "error",
+      "detail": "message redacted",
+      "evidence": [
+        "events.jsonl line 20 (seq 20, runtime tool.call)",
+        "events.jsonl line 21 (seq 21, runtime tool.result)"
+      ],
+      "order": 4,
+      "run": "F2",
+      "session_key": "agent:frankie:tui-94b7e1b6-d088-494c-8b91-765be43205d0",
+      "repeat": 2
+    },
+    {
+      "id": "call_741999",
+      "tool": "exec",
+      "parent": null,
+      "label": "Check if missing_events.csv exists without optional",
+      "target": null,
+      "call_seq": 28,
+      "call_ts": "2026-11-01T18:18:40.881Z",
+      "result_seq": 32,
+      "result_ts": "2026-11-01T18:18:41.679Z",
+      "status": "error",
+      "detail": "internal_error",
+      "evidence": [
+        "events.jsonl line 28 (seq 28, runtime tool.call)",
+        "events.jsonl line 32 (seq 32, runtime tool.result)"
+      ],
+      "order": 5,
+      "run": "F2",
+      "session_key": "agent:frankie:tui-94b7e1b6-d088-494c-8b91-765be43205d0",
+      "repeat": null
+    },
+    {
+      "id": "tool_call:call_741999:read:1",
+      "tool": "read",
+      "parent": "call_741999",
+      "label": "$WORKSPACE_DIR/midterm_data/missing_events.csv",
+      "target": "$WORKSPACE_DIR/midterm_data/missing_events.csv",
+      "call_seq": 29,
+      "call_ts": "2026-11-01T18:18:41.141Z",
+      "result_seq": 30,
+      "result_ts": "2026-11-01T18:18:41.608Z",
+      "status": "error",
+      "detail": "File not found",
+      "evidence": [
+        "events.jsonl line 29 (seq 29, runtime tool.call)",
+        "events.jsonl line 30 (seq 30, runtime tool.result)"
+      ],
+      "order": 6,
+      "run": "F2",
+      "session_key": "agent:frankie:tui-94b7e1b6-d088-494c-8b91-765be43205d0",
+      "repeat": 3
+    }
+  ],
+  "edges": [
+    {
+      "source": "call_510042",
+      "target": "call_1278436",
+      "type": "next"
+    },
+    {
+      "source": "call_1278436",
+      "target": "call_741999",
+      "type": "next"
+    },
+    {
+      "source": "call_510042",
+      "target": "tool_call:call_510042:read:1",
+      "type": "parent"
+    },
+    {
+      "source": "call_1278436",
+      "target": "tool_call:call_1278436:read:1",
+      "type": "parent"
+    },
+    {
+      "source": "call_741999",
+      "target": "tool_call:call_741999:read:1",
+      "type": "parent"
+    },
+    {
+      "source": "tool_call:call_510042:read:1",
+      "target": "tool_call:call_1278436:read:1",
+      "type": "retry"
+    },
+    {
+      "source": "tool_call:call_1278436:read:1",
+      "target": "tool_call:call_741999:read:1",
+      "type": "retry"
+    }
+  ]
+}

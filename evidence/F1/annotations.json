@@ -1,0 +1,118 @@
+{
+  "case": "F1",
+  "note": "Nested code-mode calls are not written to the transcript stream. Each entry was checked by both team members against the listed lines of the raw events.jsonl.",
+  "reviewed_by": [
+    "Brenda Bailey",
+    "Kelley Jorge"
+  ],
+  "calls": [
+    {
+      "call_id": "tool_call:call_1224218:read:1",
+      "tool": "read",
+      "target": "$WORKSPACE_DIR/midterm_data/alert_rule.txt",
+      "status": "success",
+      "call_seq": 17,
+      "result_seq": 20,
+      "evidence": "events.jsonl lines 17 and 20 (runtime tool.call/tool.result); result begins: Rule R-1 (practice rule): Flag a device if it has at least t"
+    },
+    {
+      "call_id": "tool_call:call_1224218:read:2",
+      "tool": "read",
+      "target": "$WORKSPACE_DIR/midterm_data/devices.csv",
+      "status": "success",
+      "call_seq": 18,
+      "result_seq": 22,
+      "evidence": "events.jsonl lines 18 and 22 (runtime tool.call/tool.result); result begins: device_id,owner,device_type\\nD-101,Elena Ortiz,Android phone"
+    },
+    {
+      "call_id": "tool_call:call_1224218:read:3",
+      "tool": "read",
+      "target": "$WORKSPACE_DIR/midterm_data/auth_events.csv",
+      "status": "success",
+      "call_seq": 19,
+      "result_seq": 23,
+      "evidence": "events.jsonl lines 19 and 23 (runtime tool.call/tool.result); result begins: event_id,timestamp_utc,device_id,event,outcome\\nE-001,2026-0"
+    },
+    {
+      "call_id": "tool_call:call_972380:read:1",
+      "tool": "read",
+      "target": "$WORKSPACE_DIR/midterm_data/alert_rule.txt",
+      "status": "success",
+      "call_seq": 32,
+      "result_seq": 35,
+      "evidence": "events.jsonl lines 32 and 35 (runtime tool.call/tool.result); result begins: Rule R-1 (practice rule): Flag a device if it has at least t"
+    },
+    {
+      "call_id": "tool_call:call_972380:read:2",
+      "tool": "read",
+      "target": "$WORKSPACE_DIR/midterm_data/devices.csv",
+      "status": "success",
+      "call_seq": 33,
+      "result_seq": 37,
+      "evidence": "events.jsonl lines 33 and 37 (runtime tool.call/tool.result); result begins: device_id,owner,device_type\\nD-101,Elena Ortiz,Android phone"
+    },
+    {
+      "call_id": "tool_call:call_972380:read:3",
+      "tool": "read",
+      "target": "$WORKSPACE_DIR/midterm_data/auth_events.csv",
+      "status": "success",
+      "call_seq": 34,
+      "result_seq": 38,
+      "evidence": "events.jsonl lines 34 and 38 (runtime tool.call/tool.result); result begins: event_id,timestamp_utc,device_id,event,outcome\\nE-001,2026-0"
+    },
+    {
+      "call_id": "tool_call:call_1138511:read:1",
+      "tool": "read",
+      "target": "$WORKSPACE_DIR/midterm_data/alert_rule.txt",
+      "status": "success",
+      "call_seq": 47,
+      "result_seq": 48,
+      "evidence": "events.jsonl lines 47 and 48 (runtime tool.call/tool.result); result begins: Rule R-1 (practice rule): Flag a device if it has at least t"
+    },
+    {
+      "call_id": "tool_call:call_1138511:read:2",
+      "tool": "read",
+      "target": "$WORKSPACE_DIR/midterm_data/devices.csv",
+      "status": "success",
+      "call_seq": 50,
+      "result_seq": 51,
+      "evidence": "events.jsonl lines 50 and 51 (runtime tool.call/tool.result); result begins: device_id,owner,device_type\\nD-101,Elena Ortiz,Android phone"
+    },
+    {
+      "call_id": "tool_call:call_1138511:read:3",
+      "tool": "read",
+      "target": "$WORKSPACE_DIR/midterm_data/auth_events.csv",
+      "status": "success",
+      "call_seq": 53,
+      "result_seq": 54,
+      "evidence": "events.jsonl lines 53 and 54 (runtime tool.call/tool.result); result begins: event_id,timestamp_utc,device_id,event,outcome\\nE-001,2026-0"
+    },
+    {
+      "call_id": "tool_call:call_783962:read:1",
+      "tool": "read",
+      "target": "$WORKSPACE_DIR/midterm_data/auth_events.csv",
+      "status": "success",
+      "call_seq": 62,
+      "result_seq": 63,
+      "evidence": "events.jsonl lines 62 and 63 (runtime tool.call/tool.result); result begins: event_id,timestamp_utc,device_id,event,outcome\\nE-001,2026-0"
+    },
+    {
+      "call_id": "tool_call:call_1186635:read:1",
+      "tool": "read",
+      "target": "$WORKSPACE_DIR/midterm_data/devices.csv",
+      "status": "success",
+      "call_seq": 71,
+      "result_seq": 72,
+      "evidence": "events.jsonl lines 71 and 72 (runtime tool.call/tool.result); result begins: device_id,owner,device_type\\nD-101,Elena Ortiz,Android phone"
+    },
+    {
+      "call_id": "tool_call:call_1186635:read:2",
+      "tool": "read",
+      "target": "$WORKSPACE_DIR/midterm_data/auth_events.csv",
+      "status": "success",
+      "call_seq": 74,
+      "result_seq": 75,
+      "evidence": "events.jsonl lines 74 and 75 (runtime tool.call/tool.result); result begins: event_id,timestamp_utc,device_id,event,outcome\\nE-001,2026-0"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+digraph tooltrace {
+  rankdir=TB; newrank=true; fontname="Helvetica";
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
+  label="M2: First identify the owner of D-102 from $WORKSPACE_DIR/midterm_data/devices.csv. Then use $WORKSPACE_DIR/midterm_data/au…\nAnswer: - **Owner of D-102:** Maya Chen (`devices.csv`) - **Event E-005 details (`auth_events.csv`):** - **UTC Time:** `2026-09-01T10:01:00Z` - **O…"; labelloc=t;
+  "call_773590" [label="C1: exec\ncall_773590\nInspect CSV files for D-102 and E-005\nerror (invalid_input)", fillcolor="#FBE6E6", color="#C43B3B"];
+  "call_1315084" [label="C2: read\ncall_1315084\ndevices.csv\nblocked (Tool read not found)", fillcolor="#FFF2D9", color="#A86A0B"];
+  "call_1212233" [label="C3: exec\ncall_1212233\nSearch catalog for read tool\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "call_973372" [label="C4: exec\ncall_973372\nRead devices and auth events CSVs\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_973372:read:1" [label="C5: read\ntool_call:call_973372:read:1\ndevices.csv  (call #2 on this file)\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  "tool_call:call_973372:read:2" [label="C6: read\ntool_call:call_973372:read:2\nauth_events.csv\nsuccess", fillcolor="#E6F4EC", color="#23824A"];
+  { rank=same; "call_973372" "tool_call:call_973372:read:1" "tool_call:call_973372:read:2" }
+  "call_773590" -> "call_1315084" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_1315084" -> "call_1212233" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_1212233" -> "call_973372" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "tool_call:call_973372:read:1" -> "tool_call:call_973372:read:2" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_973372" -> "tool_call:call_973372:read:1" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_973372" -> "tool_call:call_973372:read:2" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_1315084" -> "tool_call:call_973372:read:1" [label="retry", color="#B04A9A", style=solid, fontsize=9];
+}

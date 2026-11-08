@@ -1,0 +1,57 @@
+{
+  "run": "M2",
+  "reference_source": "OpenClaw transcript stream (tool.call / tool.result, telemetry.callCount) + manual annotation of nested calls reviewed by Brenda Bailey, Kelley Jorge",
+  "counts": {
+    "reference_calls": 6,
+    "graph_nodes": 6,
+    "matched_calls": 6,
+    "missing_calls": 0,
+    "extra_calls": 0,
+    "duplicate_node_ids": 0,
+    "reference_edges": 7,
+    "graph_edges": 7,
+    "correct_edges": 7,
+    "incorrect_edges": 0,
+    "missing_edges": 0
+  },
+  "node_precision": 1.0,
+  "node_recall": 1.0,
+  "edge_precision": 1.0,
+  "edge_recall": 1.0,
+  "metric_note": "n/a = undefined because both the reference and the graph are empty (0/0)",
+  "edges_by_type": {
+    "next": 4,
+    "overlaps": 0,
+    "parent": 2,
+    "retry": 1
+  },
+  "status_counts": {
+    "success": 4,
+    "error": 1,
+    "blocked": 1,
+    "unknown": 0
+  },
+  "repeated_calls_same_tool_and_file": {
+    "read midterm_data/devices.csv": [
+      "call_1315084",
+      "tool_call:call_973372:read:1"
+    ]
+  },
+  "checks": {
+    "1_node_coverage": true,
+    "1b_nested_count_matches_telemetry": true,
+    "2_identity_and_attributes": true,
+    "3_edge_correctness": true,
+    "4_boundary_cases": true
+  },
+  "passed": true,
+  "missing_calls": [],
+  "extra_calls": [],
+  "duplicate_ids": [],
+  "attribute_mismatches": [],
+  "nested_count_problems": [],
+  "incorrect_edges": [],
+  "missing_edges": [],
+  "self_loops": [],
+  "matching_rule": "one-to-one exact call-ID match; then tool, outcome, parent and session key compared; expected edges recomputed from the reference with the declared edge rules"
+}

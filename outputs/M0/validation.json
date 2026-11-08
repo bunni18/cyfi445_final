@@ -1,0 +1,52 @@
+{
+  "run": "M0",
+  "reference_source": "OpenClaw transcript stream (tool.call / tool.result, telemetry.callCount)",
+  "counts": {
+    "reference_calls": 0,
+    "graph_nodes": 0,
+    "matched_calls": 0,
+    "missing_calls": 0,
+    "extra_calls": 0,
+    "duplicate_node_ids": 0,
+    "reference_edges": 0,
+    "graph_edges": 0,
+    "correct_edges": 0,
+    "incorrect_edges": 0,
+    "missing_edges": 0
+  },
+  "node_precision": "n/a",
+  "node_recall": "n/a",
+  "edge_precision": "n/a",
+  "edge_recall": "n/a",
+  "metric_note": "n/a = undefined because both the reference and the graph are empty (0/0)",
+  "edges_by_type": {
+    "next": 0,
+    "overlaps": 0,
+    "parent": 0,
+    "retry": 0
+  },
+  "status_counts": {
+    "success": 0,
+    "error": 0,
+    "blocked": 0,
+    "unknown": 0
+  },
+  "repeated_calls_same_tool_and_file": {},
+  "checks": {
+    "1_node_coverage": true,
+    "1b_nested_count_matches_telemetry": true,
+    "2_identity_and_attributes": true,
+    "3_edge_correctness": true,
+    "4_boundary_cases": true
+  },
+  "passed": true,
+  "missing_calls": [],
+  "extra_calls": [],
+  "duplicate_ids": [],
+  "attribute_mismatches": [],
+  "nested_count_problems": [],
+  "incorrect_edges": [],
+  "missing_edges": [],
+  "self_loops": [],
+  "matching_rule": "one-to-one exact call-ID match; then tool, outcome, parent and session key compared; expected edges recomputed from the reference with the declared edge rules"
+}
