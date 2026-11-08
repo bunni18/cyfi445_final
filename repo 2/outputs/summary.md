@@ -1,0 +1,9 @@
+# Results across runs
+
+| Run | Ref. calls | Graph nodes | Matched | Missing | Extra | Ref. edges | Correct edges | Incorrect edges | Node P / R | Edge P / R | Success / error / blocked | Edges next / overlaps / parent / retry | Result |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| M0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | n/a / n/a | n/a / n/a | 0 / 0 / 0 | 0 / 0 / 0 / 0 | PASS |
+| M1 | 5 | 5 | 5 | 0 | 0 | 5 | 5 | 0 | 1.0 / 1.0 | 1.0 / 1.0 | 3 / 1 / 1 | 3 / 0 / 1 / 1 | PASS |
+| M2 | 6 | 6 | 6 | 0 | 0 | 7 | 7 | 0 | 1.0 / 1.0 | 1.0 / 1.0 | 4 / 1 / 1 | 4 / 0 / 2 / 1 | PASS |
+| F1 | 18 | 18 | 18 | 0 | 0 | 24 | 24 | 0 | 1.0 / 1.0 | 1.0 / 1.0 | 16 / 2 / 0 | 8 / 4 / 12 / 0 | PASS |
+| F2 | 6 | 6 | 6 | 0 | 0 | 7 | 7 | 0 | 1.0 / 1.0 | 1.0 / 1.0 | 0 / 6 / 0 | 2 / 0 / 3 / 2 | PASS |

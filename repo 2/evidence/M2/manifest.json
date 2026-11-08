@@ -1,0 +1,53 @@
+{
+  "traceSchema": "openclaw-trajectory",
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-01T18:13:08.016Z",
+  "traceId": "fefa662c-9098-4c9f-96dd-47de6017e15d",
+  "sessionId": "fefa662c-9098-4c9f-96dd-47de6017e15d",
+  "sessionKey": "agent:frankie:tui-df5fa8dc-8aab-43ec-b329-9ea9c8a17d7a",
+  "workspaceDir": "$WORKSPACE_DIR",
+  "leafId": "adbb87a5-00cb-4d81-a8f4-2afa4e342616",
+  "eventCount": 41,
+  "runtimeEventCount": 19,
+  "transcriptEventCount": 22,
+  "sourceFiles": {
+    "session": "agent:…7d7a"
+  },
+  "supplementalFiles": [
+    "metadata.json",
+    "artifacts.json",
+    "prompts.json"
+  ],
+  "contents": [
+    {
+      "path": "metadata.json",
+      "mediaType": "application/json",
+      "bytes": 13777
+    },
+    {
+      "path": "artifacts.json",
+      "mediaType": "application/json",
+      "bytes": 2877
+    },
+    {
+      "path": "prompts.json",
+      "mediaType": "application/json",
+      "bytes": 725
+    },
+    {
+      "path": "events.jsonl",
+      "mediaType": "application/x-ndjson",
+      "bytes": 71211
+    },
+    {
+      "path": "session-branch.json",
+      "mediaType": "application/json",
+      "bytes": 10488
+    },
+    {
+      "path": "tools.json",
+      "mediaType": "application/json",
+      "bytes": 9122
+    }
+  ]
+}

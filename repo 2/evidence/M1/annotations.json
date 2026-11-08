@@ -1,0 +1,19 @@
+{
+  "case": "M1",
+  "note": "Nested code-mode calls are not written to the transcript stream. Each entry was checked by both team members against the listed lines of the raw events.jsonl.",
+  "reviewed_by": [
+    "Brenda Bailey",
+    "Kelley Jorge"
+  ],
+  "calls": [
+    {
+      "call_id": "tool_call:call_1183670:read:1",
+      "tool": "read",
+      "target": "midterm_data/devices.csv",
+      "status": "success",
+      "call_seq": 29,
+      "result_seq": 30,
+      "evidence": "events.jsonl lines 29 and 30 (runtime tool.call/tool.result); result begins: device_id,owner,device_type\\nD-101,Elena Ortiz,Android phone"
+    }
+  ]
+}

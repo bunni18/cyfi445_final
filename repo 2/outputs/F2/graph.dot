@@ -1,0 +1,21 @@
+digraph tooltrace {
+  rankdir=TB; newrank=true; fontname="Helvetica";
+  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
+  label="F2: Try to read $WORKSPACE_DIR/midterm_data/missing_events.csv and report whether the file exists. Do not create it.\nAnswer: The file `$WORKSPACE_DIR/midterm_data/missing_events.csv` does not exist."; labelloc=t;
+  "call_510042" [label="C1: exec\ncall_510042\nCheck if missing_events.csv exists\nerror (internal_error)", fillcolor="#FBE6E6", color="#C43B3B"];
+  "tool_call:call_510042:read:1" [label="C2: read\ntool_call:call_510042:read:1\nmissing_events.csv\nerror (message redacted)", fillcolor="#FBE6E6", color="#C43B3B"];
+  "call_1278436" [label="C3: exec\ncall_1278436\nCheck if missing_events.csv exists with boolean optional\nerror (internal_error)", fillcolor="#FBE6E6", color="#C43B3B"];
+  "tool_call:call_1278436:read:1" [label="C4: read\ntool_call:call_1278436:read:1\nmissing_events.csv  (call #2 on this file)\nerror (message redacted)", fillcolor="#FBE6E6", color="#C43B3B"];
+  "call_741999" [label="C5: exec\ncall_741999\nCheck if missing_events.csv exists without optional\nerror (internal_error)", fillcolor="#FBE6E6", color="#C43B3B"];
+  "tool_call:call_741999:read:1" [label="C6: read\ntool_call:call_741999:read:1\nmissing_events.csv  (call #3 on this file)\nerror (File not found)", fillcolor="#FBE6E6", color="#C43B3B"];
+  { rank=same; "call_510042" "tool_call:call_510042:read:1" }
+  { rank=same; "call_1278436" "tool_call:call_1278436:read:1" }
+  { rank=same; "call_741999" "tool_call:call_741999:read:1" }
+  "call_510042" -> "call_1278436" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_1278436" -> "call_741999" [label="next", color="#1C2A44", style=solid, fontsize=9];
+  "call_510042" -> "tool_call:call_510042:read:1" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_1278436" -> "tool_call:call_1278436:read:1" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "call_741999" -> "tool_call:call_741999:read:1" [label="parent", color="#5B6B85", style=dashed, fontsize=9];
+  "tool_call:call_510042:read:1" -> "tool_call:call_1278436:read:1" [label="retry", color="#B04A9A", style=solid, fontsize=9];
+  "tool_call:call_1278436:read:1" -> "tool_call:call_741999:read:1" [label="retry", color="#B04A9A", style=solid, fontsize=9];
+}

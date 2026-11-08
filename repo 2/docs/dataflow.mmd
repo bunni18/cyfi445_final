@@ -1,0 +1,20 @@
+flowchart LR
+  U["User question<br/>(one prompt, new TUI session)"] --> GW["OpenClaw Gateway<br/>agent frankie"]
+  GW <--> M["Gemini 3.5 Flash-Lite<br/>(chooses tool calls)"]
+  GW --> EX["Tool executor<br/>exec / wait visible;<br/>catalog tools nested in exec"]
+  EX -- "runtime events<br/>tool.call / tool.result" --> TB[("Trajectory bundle<br/>events.jsonl")]
+  GW -- "transcript events<br/>+ telemetry.callCount" --> TB
+  TB --> R["redact.py<br/>shareable copy"]
+  R --> TG["tracegraph.py process<br/>reads runtime stream only"]
+  R --> MR["make_reference.py<br/>reads transcript stream only"]
+  A["annotations.json<br/>nested calls checked<br/>by both teammates"] --> MR
+  TG --> G["graph.json · graph.dot<br/>graph.svg / .png"]
+  MR --> REF["reference.json"]
+  G --> V{"validate<br/>nodes · attributes ·<br/>edges · nested counts"}
+  REF --> V
+  V --> VR["validation.json / .md"]
+  G --> MU["mutate<br/>damaged copies"] --> V
+  classDef store fill:#EEF3FA,stroke:#3B5B8C;
+  classDef out fill:#E6F4EC,stroke:#23824A;
+  class TB,REF store;
+  class G,VR out;
