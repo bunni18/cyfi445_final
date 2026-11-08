@@ -1,6 +1,0 @@
-digraph tooltrace {
-  rankdir=TB; newrank=true; fontname="Helvetica";
-  node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];
-  label="M0: Without reading any files, what is 2 + 2?\nAnswer: 4"; labelloc=t;
-  none [label="No tool-call nodes", shape=plaintext];
-}
